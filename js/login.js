@@ -32,12 +32,13 @@ function guardarLogin(jugadorUno) {
 }
 
 function redirigir(jugadorUno) {
-    alert("Ya puede ingresar a los juegos " + jugadorUno.nombre +", suerte!")
+    
+      alert("Ya puede ingresar a los juegos " + jugadorUno.nombre +", suerte!")
 }
 
 function desloguear (){
     localStorage.removeItem("cuentaUno");
     localStorage.removeItem("historial");
-    alert("ha cerrado la sesion correctamente")
+      Swal.fire("ha cerrado la sesion correctamente");
 }
 

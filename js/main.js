@@ -38,8 +38,8 @@ function leerDos() {
         Swal.fire({
             icon: "error",
             title: "Oops...",
-            text: "No estas logueado!",
-            footer: '<a href="./login.html">INICIAR SESION</a>'
+            text: "Debe loguearse para comenzar a jugar!",
+            footer: '<a href="./login.html">INICIAR SESION AQUI</a>'
           });
     }
 }
@@ -191,5 +191,5 @@ document.getElementById("logout").onclick = () => { desloguear() }
 function desloguear() {
     localStorage.removeItem("cuentaUno");
     localStorage.removeItem("historial");
-    alert("ha cerrado la sesion correctamente")
+    Swal.fire("ha cerrado la sesion correctamente");
 }
