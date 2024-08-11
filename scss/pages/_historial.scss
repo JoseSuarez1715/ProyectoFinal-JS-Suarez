@@ -1,0 +1,29 @@
+.mainHistorial {
+    @extend .pagina-fondo;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .bannerHistorial{
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img{
+            padding: 20px;
+            width: 70%;
+        }
+        table{
+            width: 100%;
+            td{
+                width: 25%;
+            }
+        }
+        #diezUltimos{
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+    }
+    
+}

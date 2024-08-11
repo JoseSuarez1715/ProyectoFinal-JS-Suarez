@@ -216,7 +216,9 @@ function ganarPlata(plata) {
     if (historico.length > 9) {
         historico.shift()
     }
-    historico.push(["blackjack victoria",plata])
+    const DateTime = luxon.DateTime;
+    const dt = DateTime.now();
+    historico.push(["ruleta victoria",plata,"victoria",dt.toLocaleString(),dt.toLocaleString(DateTime.TIME_SIMPLE)])
     localStorage.setItem("historial", JSON.stringify(historico))
     
 }
@@ -231,7 +233,9 @@ function pierdePlata(plata) {
     if (historico.length > 9) {
         historico.shift()
     }
-    historico.push(["blackjack derrota",plata])
+    const DateTime = luxon.DateTime;
+    const dt = DateTime.now();
+    historico.push(["ruleta derrota",plata,"derrota",dt.toLocaleString(),dt.toLocaleString(DateTime.TIME_SIMPLE)])
     localStorage.setItem("historial", JSON.stringify(historico))
 }
 

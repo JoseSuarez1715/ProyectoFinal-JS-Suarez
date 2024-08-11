@@ -1,8 +1,14 @@
-.main {
+.mainRuleta {
     @extend .pagina-fondo;
     display: flex;
-    justify-content: center;
-
+    flex-direction: column;
+    align-items: center;
+    .bannerRuleta{
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        padding: 15px;
+    }
     .mesa {
         background-color: rgb(17, 167, 17);
         width: 70%;

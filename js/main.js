@@ -16,8 +16,8 @@ const arrayDado = [dadoUno, dadoDos, dadoTres, dadoCuatro, dadoCinco, dadoSeis]
 
 
 // seleccion de line pass
-let apuestaBj = document.getElementById("btnradio1")
-let apuestaBj2 = document.getElementById("btnradio2")
+let apuestaCrapuno = document.getElementById("btnradio1")
+let apuestaCrapdos = document.getElementById("btnradio2")
 
 // boton para empezar a jugar luego de seleccionar line pass
 let botonDado = document.getElementById("tirarDado")
@@ -34,7 +34,7 @@ function leerDos() {
         // document.getElementById("userr").innerHTML = `Usuario: ${valoor.user}`
         document.getElementById("wapp").innerHTML = `<p>Dinero: $${valoor.dinero}</p>`
     }
-    else {        
+    else {
         alert("debe loguearse primero")
     }
 }
@@ -42,46 +42,34 @@ function leerDos() {
 // funcion que compara las condiciones de victoria y derrota del line pass.
 // si no se cumple ninguna, el resultado de la tirada es el punto (valor con el que pierde la apuesta en las proximas tiradas)
 function dadosMesa() {
-   let resultado = dosDados();
-    console.log(apuestaBj.checked)
-    if (apuestaBj.checked) {
+    let resultado = dosDados();
+    let apuestaCrap = document.getElementById("apuestaCrap").value
+    if (apuestaCrapuno.checked) {
         if (resultado == 7 || resultado == 11) {
-            console.log("ganaste")
-            document.getElementById("comoFue").innerHTML = `<div class="alert alert-success" role="alert">
-                                                            victoria!
-                                                            </div>`;
+            victoria(apuestaCrap);
             reinicio();
         }
         else {
             if (resultado == 2 || resultado == 3 || resultado == 12) {
-                console.log("perdiste")
-                document.getElementById("comoFue").innerHTML = `<div class="alert alert-danger" role="alert">
-                                                            Derrota!
-                                                            </div>`;                                                           
+                derrota(apuestaCrap)
                 reinicio();
             }
-            else {                
-                tiradas(resultado)
+            else {
+                tiradas(resultado, "pass", apuestaCrap)
             }
         }
     }
-    if (apuestaBj2.checked) {
+    if (apuestaCrapdos.checked) {
         if (resultado == 2 || resultado == 3) {
-            console.log("ganaste")
-            document.getElementById("comoFue").innerHTML = `<div class="alert alert-success" role="alert">
-                                                            victoria!
-                                                            </div>`
+            victoria(apuestaCrap)
             reinicio();
         }
         else {
             if (resultado == 7 || resultado == 11) {
-                console.log("perdiste")
-                document.getElementById("comoFue").innerHTML = `<div class="alert alert-danger" role="alert">
-                                                            Derrota!
-                                                            </div>`
-            reinicio();                                                
+                derrota(apuestaCrap)
+                reinicio();
             } else {
-                resultado == 12 ? reinicio():tiradas(resultado);               
+                resultado == 12 ? reinicio() : tiradas(resultado, "noPass",apuestaCrap);
             }
         }
     }
@@ -98,38 +86,51 @@ function dosDados() {
     return cuentaDado;
 }
 
-// funcion que hace aparecer el punto y cambia el boton a "volver a tirar". en espera del nuevo boton "volver a tirar"
-function tiradas(punto) {
+// funcion que hace aparecer el "punto" y cambia el boton a "volver a tirar". en espera del nuevo boton "volver a tirar"
+// si se eligio "line pass" (pase == pass), se gana con el "punto" y se pierde con 7. Si se eligió "dont pass line" es al reves.
+function tiradas(punto, pase, apuestaCrap) {
     document.getElementById("apuestaPunto").innerHTML = `<p><b>Punto = ${punto}</b></p>`
-    document.getElementById("leyendaPunto").innerHTML = `<p> Repetir tiradas hasta que obtengas 7 para ganar, ${punto} para perder.</p>`
+    if (pase == "pass") {
+        document.getElementById("leyendaPunto").innerHTML = `<p> Repetir tiradas hasta que obtengas ${punto} para ganar, 7 para perder.</p>`
+    } else {
+        document.getElementById("leyendaPunto").innerHTML = `<p> Repetir tiradas hasta que obtengas 7 para ganar, ${punto} para perder.</p>`
+    }
     document.getElementById("leyendaLinepass").innerHTML = `<br><br><br>`
     document.getElementById("panel").innerHTML = `<button type="button" class="btn btn-primary" id="tirarDadoDos">volver a tirar</button>`
     let botonVolverTirar = document.getElementById("tirarDadoDos");
-    botonVolverTirar.onclick = () => { tiradasPunto(punto) };
+    botonVolverTirar.onclick = () => { tiradasPunto(punto, pase,apuestaCrap) };
 }
 
-// funcion que compara una nueva tirada con 7 (victoria) o el "punto"(derrota). si no se cumplen, vuelve a establecer la tirada.
-function tiradasPunto(puntoObjetivo) {
+// funcion que compara una nueva tirada con 7 (derrota para line pass, victoria para dont line pass),
+//  o el "punto" (victoria para line pass, derrota para dont line pass). 
+function tiradasPunto(puntoObjetivo, pase,apuestaCrap) {
     let resultadoNuevo = dosDados();
     if (resultadoNuevo == 7) {
-        victoria();
+        pase == "pass" ? derrota(apuestaCrap) : victoria(apuestaCrap);
     } else {
-        resultadoNuevo == puntoObjetivo ? derrota () : tiradas(puntoObjetivo);                    
+        if (resultadoNuevo == puntoObjetivo) {
+            pase == "pass" ? victoria(apuestaCrap) : derrota(apuestaCrap);
+
+        } else {
+            tiradas(puntoObjetivo, pase,apuestaCrap)
+        }
     }
 }
 
-function victoria () {
+function victoria(ganancia) {
     document.getElementById("comoFue").innerHTML = `<div class="alert alert-success col-6" role="alert">
-                                                            victoria!
-                                                            </div>`
-        reinicio();
+                                                            victoria! Ganó $${ganancia}
+                                                            </div>`;
+    ganarPlata(ganancia)
+    reinicio();
 }
 
-function derrota () {
+function derrota(deuda) {
     document.getElementById("comoFue").innerHTML = `<div class="alert alert-danger col-6" role="alert">
-                                                            derrota!
-                                                            </div>`
-            reinicio();    
+                                                            derrota! Perdió $${deuda}
+                                                            </div>`;
+    pierdePlata(deuda)
+    reinicio();
 }
 
 // obtiene un numero aleatorio que luego se usara para elegir el elemento del array "dado"
@@ -142,16 +143,47 @@ function dadoAleatorio() {
 }
 
 // luego de una victoria o derrota, reinicia la pagina si queres vovler a jugar
-function reinicio() {    
+function reinicio() {
     document.getElementById("panel").innerHTML = `<button type="button" class="btn btn-primary" id="reiniciarCraps">volver a jugar?</button>`
     let botonReinicioCraps = document.getElementById("reiniciarCraps")
     botonReinicioCraps.onclick = () => { location.reload() }
 }
 
+// obtiene la propiedad dinero del localstorage, la modifica, guarda un historial... y si el historial llega a 10 borra el mas viejo.
+function ganarPlata(plata) {
+    let valoor = JSON.parse(localStorage.getItem("cuentaUno"))
+    valoor.dinero = parseInt(valoor.dinero) + parseInt(plata)
+    document.getElementById("wapp").innerHTML = `<p>Dinero: $${valoor.dinero}</p>`
+    localStorage.setItem("cuentaUno", JSON.stringify(valoor))
+    let historico = JSON.parse(localStorage.getItem("historial"))
+    if (historico.length > 9) {
+        historico.shift()
+    }
+    const DateTime = luxon.DateTime;
+    const dt = DateTime.now();
+    historico.push(["craps victoria", plata,"victoria",dt.toLocaleString(),dt.toLocaleString(DateTime.TIME_SIMPLE)])
+    localStorage.setItem("historial", JSON.stringify(historico))
+}
+
+// obtiene la propiedad dinero del localstorage, la modifica, guarda un historial... y si el historial llega a 10 borra el mas viejo.
+function pierdePlata(plata) {
+    let valoor = JSON.parse(localStorage.getItem("cuentaUno"))
+    valoor.dinero = valoor.dinero - plata
+    document.getElementById("wapp").innerHTML = `<p>Dinero: $${valoor.dinero}</p>`
+    localStorage.setItem("cuentaUno", JSON.stringify(valoor))
+    let historico = JSON.parse(localStorage.getItem("historial"))
+    if (historico.length > 9) {
+        historico.shift()
+    }
+    const DateTime = luxon.DateTime;
+    const dt = DateTime.now();
+    historico.push(["craps derrota", plata,"derrota",dt.toLocaleString(),dt.toLocaleString(DateTime.TIME_SIMPLE)])
+    localStorage.setItem("historial", JSON.stringify(historico))
+}
 
 document.getElementById("logout").onclick = () => { desloguear() }
 
-function desloguear (){
+function desloguear() {
     localStorage.removeItem("cuentaUno");
     localStorage.removeItem("historial");
     alert("ha cerrado la sesion correctamente")

@@ -18,7 +18,7 @@
     padding: 15px;
     border-radius: 15%; }
 
-.pagina-fondo, .mainLogin, .main, .mainIndex, .mainRuleta {
+.pagina-fondo, .mainLogin, .mainRuleta, .mainIndex, .mainBj, .mainHistorial {
   background-image: url("../resources/patron.png");
   background-size: 10%; }
 
@@ -42,20 +42,26 @@
   .mainLogin div {
     margin: 15px 0; }
 
-.main {
+.mainRuleta {
   display: flex;
-  justify-content: center; }
-  .main .mesa {
+  flex-direction: column;
+  align-items: center; }
+  .mainRuleta .bannerRuleta {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    padding: 15px; }
+  .mainRuleta .mesa {
     background-color: #11a711;
     width: 70%;
     display: flex;
     flex-direction: row;
     justify-content: center; }
-    .main .mesa .ruleta img {
+    .mainRuleta .mesa .ruleta img {
       width: 50%;
       border-radius: 50%;
       margin-top: 10px; }
-    .main .mesa .ruleta div {
+    .mainRuleta .mesa .ruleta div {
       margin-top: 30px; }
 
 .mainIndex {
@@ -97,3 +103,45 @@
       margin: 60px; }
     .mainRuleta .mesaRuleta .dados div {
       display: inline; }
+
+.mainBj {
+  display: flex;
+  justify-content: center; }
+  .mainBj .principalBj {
+    padding: 25px;
+    width: 70%; }
+    .mainBj .principalBj .mesaBj {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #199919;
+      margin-top: 30px; }
+      .mainBj .principalBj .mesaBj .panelHorizonal {
+        display: flex;
+        flex-direction: row; }
+      .mainBj .principalBj .mesaBj img {
+        margin: 10px;
+        width: 180px;
+        height: 270px; }
+
+.mainHistorial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .mainHistorial .bannerHistorial {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .mainHistorial .bannerHistorial img {
+      padding: 20px;
+      width: 70%; }
+    .mainHistorial .bannerHistorial table {
+      width: 100%; }
+      .mainHistorial .bannerHistorial table td {
+        width: 25%; }
+    .mainHistorial .bannerHistorial #diezUltimos {
+      display: flex;
+      flex-direction: column;
+      align-items: center; }

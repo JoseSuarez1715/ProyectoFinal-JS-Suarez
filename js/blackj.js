@@ -4,8 +4,8 @@ class mazo {
         this.imagen = imagen
     }
 }
-
-const unoD = new mazo(1,"1d")
+ 
+const unoD = new mazo(11,"1d")
 const dosD = new mazo(2,"2d")
 const tresD = new mazo(3,"3d")
 const cuatroD = new mazo(4,"4d")
@@ -19,7 +19,7 @@ const jD = new mazo(10,"jd")
 const qD = new mazo(10,"qd")
 const kD = new mazo(10,"kd")
 
-const unoC = new mazo(1,"1c")
+const unoC = new mazo(11,"1c")
 const dosC = new mazo(2,"2c")
 const tresC = new mazo(3,"3c")
 const cuatroC = new mazo(4,"4c")
@@ -33,7 +33,7 @@ const jC = new mazo(10,"jc")
 const qC = new mazo(10,"qc")
 const kC = new mazo(10,"kc")
 
-const unoP = new mazo(1,"1p")
+const unoP = new mazo(11,"1p")
 const dosP = new mazo(2,"2p")
 const tresP = new mazo(3,"3p")
 const cuatroP = new mazo(4,"4p")
@@ -47,7 +47,7 @@ const jP = new mazo(10,"jp")
 const qP = new mazo(10,"qp")
 const kP = new mazo(10,"kp")
 
-const unoT = new mazo(1,"1t")
+const unoT = new mazo(11,"1t")
 const dosT = new mazo(2,"2t")
 const tresT = new mazo(3,"3t")
 const cuatroT = new mazo(4,"4t")
@@ -60,6 +60,8 @@ const diezT = new mazo(10,"10t")
 const jT = new mazo(10,"jt")
 const qT = new mazo(10,"qt")
 const kT = new mazo(10,"kt")
+
+
 
 const arrayMazoCompleto = [unoC, unoD, unoP, unoT, dosC, dosD, dosP, dosT, tresC, tresD, tresP, tresT, cuatroC, cuatroD, cuatroP, cuatroT, cincoC, cincoD, cincoP, cincoT, seisC, seisD, seisP, seisT, sieteC, sieteD, sieteP, sieteT, ochoC, ochoD, ochoP, ochoT, nueveC, nueveD, nueveP, nueveT, diezC, diezD, diezP, diezT, jC, jD, jP, jT, qC, qD, qP, qT, kC, kD, kP, kT];
 
@@ -84,13 +86,13 @@ function leerDos() {
 valorCarta = 0;
 valorCrupier = 0;
 
+const manoJugador = []
+
 let apuestaBj = document.getElementById("apuestaBlackjack")
 let botonPlantarse = document.getElementById("plantarse")
 let botonOtra = document.getElementById("pedirOtra")
-let botonOtravez = document.getElementById("otra")
 botonOtra.onclick = () => { cartaJugador() }
 botonPlantarse.onclick = () => { juegaCrupier() }
-botonOtravez.onclick = () => { location.reload() }
 
 // cuando pedis carta va acumulando hasta que pasa de 21
 function cartaJugador() {   
@@ -102,10 +104,16 @@ function cartaJugador() {
         document.getElementById("cuentaJugador").innerHTML = `<h2>cuenta del jugador: ${valorCarta}</h2>`
         arrayMazoCompleto.splice(azar, 1)
         console.log(arrayMazoCompleto.length);
+        manoJugador.push(carta.valor)
+        console.log(manoJugador);
         if (valorCarta > 21)
             {
-                document.getElementById("victoriaDerrota").innerHTML = `<div class="alert alert-danger" role="alert">DERROTA</div>`;
-                pierdePlata(parseInt(apuestaBj.value));                             
+                if (manoJugador.includes(11)) {
+                    valorCarta = valorCarta - 10;
+                    document.getElementById("cuentaJugador").innerHTML = `<h2>cuenta del jugador: ${valorCarta}</h2>`;
+                } else {
+                    derrota(apuestaBj.value);
+                }                              
             }  
 }
 
@@ -120,7 +128,7 @@ function aleatorioBlackjack() {
 
 // crupier saca cartas al azar hasta que supera la jugador o se pasa de 21
 function juegaCrupier() {
-    if (valorCarta == 0) {
+        if (valorCarta == 0) {
         alert("Debe pedir carta primero")
     }
     else {
@@ -132,31 +140,44 @@ function juegaCrupier() {
             document.getElementById("cuentaCrupier").innerHTML = `<h2>cuenta del crupier: ${valorCrupier}</h2>`
             arrayMazoCompleto.splice(azar, 1)
             console.log(arrayMazoCompleto.length);
-        }
-     
+        }    
         if (valorCrupier > 21) {
-            document.getElementById("victoriaDerrota").innerHTML = `<div class="alert alert-success" role="alert">VICTORIA</div>`
-            ganarPlata(parseInt(apuestaBj.value))
-        } else {
-            document.getElementById("victoriaDerrota").innerHTML = `<div class="alert alert-danger" role="alert">DERROTA</div>`;
-            pierdePlata(parseInt(apuestaBj.value));
+            victoria (apuestaBj.value)
             
-        }
-        
+        } else {
+            derrota(apuestaBj.value);
+        }       
     }
 
 }
+
+function derrota (plata) {
+    document.getElementById("victoriaDerrota").innerHTML = `<div class="alert alert-danger" role="alert">DERROTA. Perdió $${plata}</div>`
+    pierdePlata(parseInt(plata))
+    document.getElementById("panelBj").innerHTML = `<button type="button" class="btn btn-primary" id="volverJugar">Volver a jugar?</button>`;
+    document.getElementById("volverJugar").onclick = () => {location.reload()}
+}
+
+function victoria (plata) {
+    document.getElementById("victoriaDerrota").innerHTML = `<div class="alert alert-success" role="alert">VICTORIA. Gano $${plata}</div>`
+    ganarPlata(parseInt(plata))
+    document.getElementById("panelBj").innerHTML = `<button type="button" class="btn btn-primary" id="volverJugar">Volver a jugar?</button>`;
+    document.getElementById("volverJugar").onclick = () => {location.reload()}
+}
+
 // obtiene la propiedad dinero del localstorage, la modifica, guarda un historial... y si el historial llega a 10 borra el mas viejo.
 function ganarPlata(plata) {
     let valoor = JSON.parse(localStorage.getItem("cuentaUno"))
     valoor.dinero = parseInt(valoor.dinero) + plata
-    document.getElementById("dinero").innerHTML = `Dinero: ${valoor.dinero}`
+    document.getElementById("wapp").innerHTML = `Dinero: ${valoor.dinero}`
     localStorage.setItem("cuentaUno", JSON.stringify(valoor))
     let historico = JSON.parse(localStorage.getItem("historial"))
     if (historico.length > 9) {
         historico.shift()
     }
-    historico.push(["blackjack victoria",plata])
+    const DateTime = luxon.DateTime;
+    const dt = DateTime.now();
+    historico.push(["blackjack victoria",plata,"victoria",dt.toLocaleString(),dt.toLocaleString(DateTime.TIME_SIMPLE)])
     localStorage.setItem("historial", JSON.stringify(historico))
 }
 // obtiene la propiedad dinero del localstorage, la modifica, guarda un historial... y si el historial llega a 10 borra el mas viejo.
@@ -169,7 +190,9 @@ function pierdePlata(plata) {
     if (historico.length > 9) {
         historico.shift()
     }
-    historico.push(["blackjack derrota",plata])
+    const DateTime = luxon.DateTime;
+    const dt = DateTime.now();
+    historico.push(["blackjack derrota",plata,"derrota",dt.toLocaleString(),dt.toLocaleString(DateTime.TIME_SIMPLE)])
     localStorage.setItem("historial", JSON.stringify(historico))
 }
 

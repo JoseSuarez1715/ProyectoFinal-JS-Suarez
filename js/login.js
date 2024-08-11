@@ -19,7 +19,7 @@ function ingresarDatos() {
     let monto = document.getElementById("dineroLogin")
     const jugadorUno = new jugador(nombre.value, apellido.value, user.value, monto.value)
     guardarLogin(jugadorUno);
-    redirigir()
+    redirigir(jugadorUno)
 }
 
 
@@ -31,8 +31,8 @@ function guardarLogin(jugadorUno) {
     localStorage.setItem("historial", JSON.stringify(arrayHistorial))
 }
 
-function redirigir() {
-    alert("Ya puede ingresar a los juegos ${jugadorUno.nombre}, suerte!")
+function redirigir(jugadorUno) {
+    alert("Ya puede ingresar a los juegos " + jugadorUno.nombre +", suerte!")
 }
 
 function desloguear (){

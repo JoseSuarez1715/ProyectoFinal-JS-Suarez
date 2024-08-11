@@ -32,11 +32,12 @@
                             <a class="nav-link" href="./blackjack.html">Blackjack</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./historial.html">Historial</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link disabled" aria-disabled="true">Craps</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./historial.html">Historial</a>
+                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="./login.html">Log In</a>
                         </li>
@@ -54,12 +55,12 @@
             <section id="paño">
                 <section class="col-6">
                     <input class="form-control" type="number" placeholder="Cuanto desea apostar?"
-                        aria-label="default input example">
+                        aria-label="default input example" id="apuestaCrap">
                     <div class="btn-group col-12" role="group" aria-label="Basic radio toggle button group">
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio1" checked>
                         <label class="btn btn-outline-dark" for="btnradio1">Line Pass (7 o 11)</label>
                         <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-                        <label class="btn btn-outline-dark" for="btnradio2">Dont pass bar (2 o 3)</label>
+                        <label class="btn btn-outline-dark" for="btnradio2">Dont pass line (2 o 3)</label>
                     </div>
                     <div id="leyendaLinepass">
                         <p><b>Line pass: ganas con 7 u 11, pierdes con 2, 3 o 12.</b></p>
@@ -92,6 +93,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="../js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.5.0/build/global/luxon.min.js"></script>
 </body>
 
 </html>

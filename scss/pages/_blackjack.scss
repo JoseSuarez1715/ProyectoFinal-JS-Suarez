@@ -1,0 +1,29 @@
+.mainBj {
+    @extend .pagina-fondo;
+    display: flex;
+    justify-content: center;
+
+    .principalBj {
+        padding: 25px;
+        width: 70%;
+
+        .mesaBj {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgb(25, 153, 25);
+
+            margin-top: 30px;
+            .panelHorizonal{
+                display: flex;
+                flex-direction: row;
+            }
+            img{
+                margin: 10px;
+                width: 180px;
+                height: 270px;
+            }
+        }
+    }
+
+}
