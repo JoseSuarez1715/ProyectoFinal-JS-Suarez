@@ -1,0 +1,17 @@
+.pagina-fondo{
+    background-image: url("../resources/patron.png");
+    background-size: 10%;
+}
+
+.wapp {
+    position: fixed;
+    top: 75%;
+
+    right: 150px;
+    button {
+        background-color: greenyellow;
+        color: black;
+        padding: 15px;
+        border-radius: 15%;
+    }
+}

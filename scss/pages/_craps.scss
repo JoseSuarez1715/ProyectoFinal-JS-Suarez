@@ -1,0 +1,47 @@
+.mainRuleta {
+    @extend .pagina-fondo;
+    display: flex;
+    justify-content: center;
+
+    .mesaRuleta {
+
+        background-color: rgba(255, 255, 255, 0);
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .banner {
+
+            display: flex;
+            justify-content: center;
+        }
+
+        #paño {
+            background-color: rgb(25, 153, 25);
+            display: flex;
+            flex-direction: row;
+            margin-top: 30px;
+
+            section {
+                padding: 20px;
+
+                .btn-group {
+                    margin-top: 10px;
+                }
+            }
+        }
+
+        #panel {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 60px;
+
+        }
+
+        .dados div {
+            display: inline;
+        }
+    }
+}

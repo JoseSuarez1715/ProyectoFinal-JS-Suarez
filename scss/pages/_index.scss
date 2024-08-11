@@ -1,0 +1,16 @@
+.mainIndex {
+    @extend .pagina-fondo;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .bannerIndex{
+       width: 50%; 
+    }
+    .juegos{
+        display: flex;
+        flex-direction: row;
+        
+    }
+    
+}

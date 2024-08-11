@@ -1,0 +1,99 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0; }
+
+.card {
+  background-color: #fcfcfc;
+  border: 0;
+  margin: 20px; }
+
+#wapp {
+  position: fixed;
+  top: 75%;
+  right: 150px; }
+  #wapp p {
+    background-color: greenyellow;
+    color: black;
+    padding: 15px;
+    border-radius: 15%; }
+
+.pagina-fondo, .mainLogin, .main, .mainIndex, .mainRuleta {
+  background-image: url("../resources/patron.png");
+  background-size: 10%; }
+
+.wapp {
+  position: fixed;
+  top: 75%;
+  right: 150px; }
+  .wapp button {
+    background-color: greenyellow;
+    color: black;
+    padding: 15px;
+    border-radius: 15%; }
+
+.mainLogin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .mainLogin .bannerLogin {
+    width: 50%; }
+  .mainLogin div {
+    margin: 15px 0; }
+
+.main {
+  display: flex;
+  justify-content: center; }
+  .main .mesa {
+    background-color: #11a711;
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center; }
+    .main .mesa .ruleta img {
+      width: 50%;
+      border-radius: 50%;
+      margin-top: 10px; }
+    .main .mesa .ruleta div {
+      margin-top: 30px; }
+
+.mainIndex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .mainIndex .bannerIndex {
+    width: 50%; }
+  .mainIndex .juegos {
+    display: flex;
+    flex-direction: row; }
+
+.mainRuleta {
+  display: flex;
+  justify-content: center; }
+  .mainRuleta .mesaRuleta {
+    background-color: rgba(255, 255, 255, 0);
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    .mainRuleta .mesaRuleta .banner {
+      display: flex;
+      justify-content: center; }
+    .mainRuleta .mesaRuleta #paño {
+      background-color: #199919;
+      display: flex;
+      flex-direction: row;
+      margin-top: 30px; }
+      .mainRuleta .mesaRuleta #paño section {
+        padding: 20px; }
+        .mainRuleta .mesaRuleta #paño section .btn-group {
+          margin-top: 10px; }
+    .mainRuleta .mesaRuleta #panel {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 60px; }
+    .mainRuleta .mesaRuleta .dados div {
+      display: inline; }
