@@ -36,3 +36,21 @@
     }
 
 }
+
+@media (max-width: 675px) {
+    .mainBj {
+       .principalBj {
+            padding: 5px;
+            width: 90%;      
+            .mesaBj {    
+                img {
+                    margin: 5px;
+                    width: 70px;
+                    height: 105px;
+                }
+    
+            }
+        }
+    
+    }
+}

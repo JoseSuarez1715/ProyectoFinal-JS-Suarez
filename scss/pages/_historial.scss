@@ -27,3 +27,22 @@
     }
     
 }
+
+@media (max-width: 675px) {
+    .mainHistorial {
+        .bannerHistorial{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            table{
+                width: 90%;
+                td{
+                    width: 25%;
+                }
+            }
+        }
+        
+    }
+   
+}

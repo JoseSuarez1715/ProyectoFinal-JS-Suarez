@@ -18,9 +18,22 @@
     padding: 15px;
     border-radius: 15%; }
 
+@media (max-width: 675px) {
+  #wapp {
+    position: fixed;
+    top: 10%;
+    right: 5px; } }
+
+footer .card {
+  padding-top: 10px; }
+
 .pagina-fondo, .mainLogin, .mainRuleta, .mainIndex, .mainBj, .mainHistorial {
   background-image: url("../resources/patron.png");
   background-size: 10%; }
+
+@media (max-width: 675px) {
+  .pagina-fondo, .mainLogin, .mainRuleta, .mainIndex, .mainBj, .mainHistorial {
+    background-size: 20%; } }
 
 .mainLogin {
   display: flex;
@@ -31,6 +44,17 @@
     width: 50%; }
   .mainLogin div {
     margin: 15px 0; }
+
+@media (max-width: 675px) {
+  .mainLogin .bannerLogin {
+    margin-top: 10px;
+    width: 90%; }
+  .mainLogin div {
+    padding: 15px 10px; }
+  .mainLogin .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; } }
 
 .mainRuleta {
   display: flex;
@@ -54,6 +78,24 @@
     .mainRuleta .mesa .ruleta div {
       margin-top: 30px; }
 
+@media (max-width: 675px) {
+  .mainRuleta .bannerRuleta {
+    width: 90%;
+    padding: 5px; }
+  .mainRuleta .mesa {
+    background-color: #11a711;
+    width: 90%;
+    flex-direction: column;
+    align-items: center; }
+    .mainRuleta .mesa .ruleta {
+      margin-left: 5px; }
+      .mainRuleta .mesa .ruleta img {
+        width: 50%;
+        border-radius: 50%; }
+      .mainRuleta .mesa .ruleta div {
+        margin-top: 5px;
+        width: 90%; } }
+
 .mainIndex {
   display: flex;
   flex-direction: column;
@@ -64,6 +106,13 @@
   .mainIndex .juegos {
     display: flex;
     flex-direction: row; }
+
+@media (max-width: 675px) {
+  .mainIndex .bannerIndex {
+    width: 90%; }
+  .mainIndex .juegos {
+    display: flex;
+    flex-direction: column; } }
 
 .mainRuleta {
   display: flex;
@@ -94,6 +143,21 @@
     .mainRuleta .mesaRuleta .dados div {
       display: inline; }
 
+@media (max-width: 675px) {
+  .mainRuleta .mesaRuleta {
+    width: 90%; }
+    .mainRuleta .mesaRuleta #paño {
+      flex-direction: column;
+      margin-top: 5px;
+      padding-top: 5px; }
+      .mainRuleta .mesaRuleta #paño #pañoDos {
+        width: 100%;
+        margin-bottom: 0; }
+      .mainRuleta .mesaRuleta #paño section {
+        padding: 0 5px; }
+        .mainRuleta .mesaRuleta #paño section .btn-group {
+          margin-top: 0px; } }
+
 .mainBj {
   display: flex;
   justify-content: center; }
@@ -118,6 +182,15 @@
         width: 180px;
         height: 270px; }
 
+@media (max-width: 675px) {
+  .mainBj .principalBj {
+    padding: 5px;
+    width: 90%; }
+    .mainBj .principalBj .mesaBj img {
+      margin: 5px;
+      width: 70px;
+      height: 105px; } }
+
 .mainHistorial {
   display: flex;
   flex-direction: column;
@@ -140,7 +213,19 @@
       flex-direction: column;
       align-items: center; }
 
+@media (max-width: 675px) {
+  .mainHistorial .bannerHistorial {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .mainHistorial .bannerHistorial table {
+      width: 90%; }
+      .mainHistorial .bannerHistorial table td {
+        width: 25%; } }
+
 #listado {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  justify-content: center; }

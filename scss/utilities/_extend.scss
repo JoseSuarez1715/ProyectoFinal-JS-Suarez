@@ -1,5 +1,10 @@
-.pagina-fondo{
+.pagina-fondo {
     background-image: url("../resources/patron.png");
     background-size: 10%;
 }
 
+@media (max-width: 675px) {
+    .pagina-fondo {
+        background-size: 20%;
+    }
+}

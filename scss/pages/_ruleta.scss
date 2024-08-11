@@ -29,3 +29,33 @@
         }
     }
 }
+
+@media (max-width: 675px) {
+    .mainRuleta {
+        
+        .bannerRuleta{
+            width: 90%;
+            padding: 5px;
+        }
+        .mesa {
+            background-color: rgb(17, 167, 17);
+            width: 90%;
+            flex-direction: column;
+            align-items: center;   
+            .ruleta {
+                
+                margin-left: 5px;
+                img {
+                    width: 50%;
+                    border-radius: 50%;
+                    
+                }
+                div {
+                    margin-top: 5px;
+                    width: 90%;
+                    
+                }
+            }
+        }
+    }
+}

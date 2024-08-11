@@ -14,3 +14,17 @@
     }
     
 }
+
+@media (max-width: 675px) {
+    .mainIndex {
+        .bannerIndex{
+           width: 90%; 
+        }
+        .juegos{
+            display: flex;
+            flex-direction: column;
+            
+        }
+        
+    }
+}

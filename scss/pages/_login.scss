@@ -4,10 +4,32 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    .bannerLogin{
-       width: 50%; 
+
+    .bannerLogin {
+        width: 50%;
     }
-    div{
+
+    div {
         margin: 15px 0;
-    }    
+    }
+}
+
+@media (max-width: 675px) {
+    .mainLogin {
+
+        .bannerLogin {
+            margin-top: 10px;
+            width: 90%;
+        }
+
+        div {
+            padding: 15px 10px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 }

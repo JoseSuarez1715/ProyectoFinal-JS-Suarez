@@ -45,3 +45,26 @@
         }
     }
 }
+
+@media (max-width: 675px) {
+    .mainRuleta {
+        .mesaRuleta {
+            width: 90%;
+            #paño {
+                flex-direction: column;
+                margin-top: 5px;
+                padding-top: 5px;
+                #pañoDos{
+                    width: 100%;
+                    margin-bottom: 0;
+                }    
+                section {
+                    padding: 0 5px;   
+                    .btn-group {
+                        margin-top: 0px;
+                    }
+                }
+            }
+        }
+    }
+}
