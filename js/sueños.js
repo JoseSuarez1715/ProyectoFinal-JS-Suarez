@@ -15,4 +15,13 @@ fetch('../miarchivo.json')
     
             lista.append(sueño)
         });
-    })
+    });
+
+// para desloguearse
+document.getElementById("logout").onclick = () => { desloguear() }
+
+function desloguear (){
+    localStorage.removeItem("cuentaUno");
+    localStorage.removeItem("historial");
+    Swal.fire("ha cerrado la sesion correctamente");
+}

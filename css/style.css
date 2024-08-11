@@ -224,8 +224,11 @@ footer .card {
       .mainHistorial .bannerHistorial table td {
         width: 25%; } }
 
-#listado {
+.bannerHistorial #listado {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center; }
+
+.bannerHistorial h3 {
+  color: white; }

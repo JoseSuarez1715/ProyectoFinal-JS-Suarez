@@ -1,3 +1,4 @@
+// para cerrar sesion
 document.getElementById("logout").onclick = () => { desloguear() }
 
 function desloguear (){

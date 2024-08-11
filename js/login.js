@@ -7,6 +7,7 @@ class jugador {
     }
 }
 
+// ingresa los datos del form cuando se presiona el boton
 let botonLogin = document.getElementById("loguear")
 botonLogin.onclick = () => { ingresarDatos() }
 
@@ -22,8 +23,6 @@ function ingresarDatos() {
     redirigir(jugadorUno)
 }
 
-
-
 const arrayHistorial = []
 
 function guardarLogin(jugadorUno) {
@@ -31,8 +30,7 @@ function guardarLogin(jugadorUno) {
     localStorage.setItem("historial", JSON.stringify(arrayHistorial))
 }
 
-function redirigir(jugadorUno) {
-    
+function redirigir(jugadorUno) {   
       alert("Ya puede ingresar a los juegos " + jugadorUno.nombre +", suerte!")
 }
 

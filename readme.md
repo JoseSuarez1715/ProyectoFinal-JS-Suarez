@@ -1,26 +1,23 @@
-# Como empezar a compilar con SCSS
+El casino consta de 3 juegos: ruleta, blackjack y craps.
+Tambien puede verse el historial de las ultimas 10 jugadas con fecha y hora, y el significado de los sueños (numeros).
 
-1. Abrir la consola en esta carpeta de backup o nueva con ctrl+ñ
-    a. npm install nodemon node-sass
-    b. npm init // Metralleta de enter (11 enters)
+Como bien dice la alerta, se debe loguear antes de empezar a jugar.
 
-2. Abrir el archivo package.json y editarlo
-    a. A continuación de && exit 1" colocar una , presionar enter
-    y pegar el siguiente texto:
+BLACKJACK: el jugador saca cartas hasta pasarse de 21 (pierde inmediatamente) o hasta que se planta. Los ases valen 11, pero si se pasa de 21 los ases que ya sacó se revalorizan en 1.
+Si se plantó, el croupier saca cartas hasta igualar o superar al jugador. Si se pasa de 21 gana el jugador (no se revalorizan los ases para el croupier, un poco de ventaja ya que es dificil ganar).
 
-"build-css": "node-sass --include-path scss scss/main.scss css/style.css",
-"watch-css": "nodemon -e scss -x \"npm run build-css\""
+se paga 1 a 1
 
-3. Crear las carpetas con sus respectivos archivos
-    a. scss/main.scss
-    b. css/style.css
+RULETA: toma una apuesta a la vez, numero (paga 36 a 1) paridad o color pagan 1 a 1.
 
-4. En la consola correr el comando
-    a. npm run build-css // Por única vez
-    b. npm run watch-css      
+CRAPS: 
 
-5. Cada vez que se quiera seguir compilando en SASS
-    a. abrir la consola con ctrl+ñ
-    b. npm run watch-css
+Se paga 1 a 1
+
+line pass gana con 7 u 11, pierde con 2,3 o 12. Cualquier otro numero se convierte en "punto" y se debe jugar hasta sacar otra vez el "punto" (victoria) o 7 (derrota).
+
+dont line pass gana con 2 o 3, pierde con 7 o 11. Cualquier otro numero se convierte en "punto" y se debe jugara hasta sacar otra vez el "punto" (derrota) o 7 (victoria).
+
+SUEÑOS: cree un json para cargar el numero y el significado hasta el 36 (ruleta).
 
 //FIN   

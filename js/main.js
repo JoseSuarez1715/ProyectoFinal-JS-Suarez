@@ -24,6 +24,7 @@ let botonDado = document.getElementById("tirarDado")
 botonDado.onclick = () => { dadosMesa() }
 
 
+// al cargar la pagina se conprueba si está logueado
 document.addEventListener("DOMContentLoaded", () => {
     leerDos()
 });
@@ -31,7 +32,6 @@ document.addEventListener("DOMContentLoaded", () => {
 function leerDos() {
     if (localStorage.length > 0) {
         var valoor = JSON.parse(localStorage.getItem("cuentaUno"))
-        // document.getElementById("userr").innerHTML = `Usuario: ${valoor.user}`
         document.getElementById("wapp").innerHTML = `<p>Dinero: $${valoor.dinero}</p>`
     }
     else {
@@ -92,7 +92,7 @@ function dosDados() {
 }
 
 // funcion que hace aparecer el "punto" y cambia el boton a "volver a tirar". en espera del nuevo boton "volver a tirar"
-// si se eligio "line pass" (pase == pass), se gana con el "punto" y se pierde con 7. Si se eligió "dont pass line" es al reves.
+// envia la info a "tiradaspunto" ya que si se eligio "line pass" (pase == pass), se gana con el "punto" y se pierde con 7. Si se eligió "dont pass line" es al reves.
 function tiradas(punto, pase, apuestaCrap) {
     document.getElementById("apuestaPunto").innerHTML = `<p><b>Punto = ${punto}</b></p>`
     if (pase == "pass") {
@@ -186,6 +186,7 @@ function pierdePlata(plata) {
     localStorage.setItem("historial", JSON.stringify(historico))
 }
 
+// para cerrar sesion
 document.getElementById("logout").onclick = () => { desloguear() }
 
 function desloguear() {

@@ -91,11 +91,10 @@ let apuestaImpar = document.getElementById("vbtn-radio38")
 let apuestaRojo = document.getElementById("vbtn-radio39")
 let apuestaNegro = document.getElementById("vbtn-radio40")
 
-
+// al cargar la pagina se conprueba si está logueado
 document.addEventListener("DOMContentLoaded", () => {   
     leerDos()
 });
-
 function leerDos() {
     if (localStorage.length > 0) {
         var valoor = JSON.parse(localStorage.getItem("cuentaUno"))

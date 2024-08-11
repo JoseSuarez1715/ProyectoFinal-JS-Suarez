@@ -1,6 +1,11 @@
-#listado{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center
+.bannerHistorial{
+    #listado {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center
+    }
+    h3{
+        color: white;
+    }
 }

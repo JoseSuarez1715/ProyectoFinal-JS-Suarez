@@ -67,15 +67,14 @@ const arrayMazoCompleto = [unoC, unoD, unoP, unoT, dosC, dosD, dosP, dosT, tresC
 
 const arrayMazoDos = arrayMazoCompleto
 
+// al cargar la pagina se conprueba si está logueado
 document.addEventListener("DOMContentLoaded", () => {
-    console.log(arrayMazoCompleto.length);
     leerDos()
 });
 
 function leerDos() {
     if (localStorage.length > 0) {
         var valoor = JSON.parse(localStorage.getItem("cuentaUno"))
-        // document.getElementById("userr").innerHTML = `Usuario: ${valoor.user}`
         document.getElementById("wapp").innerHTML = `<p>Dinero: $${valoor.dinero}</p>`
     }
     else { 
@@ -93,6 +92,7 @@ valorCrupier = 0;
 
 const manoJugador = []
 
+// botones de pedir y plantarse
 let apuestaBj = document.getElementById("apuestaBlackjack")
 let botonPlantarse = document.getElementById("plantarse")
 let botonOtra = document.getElementById("pedirOtra")
@@ -161,6 +161,7 @@ function juegaCrupier() {
 
 }
 
+// las funciones victoria y derrota dan el mensaje, invocan ganar o perder plata y borran los anteriores botones para crear el "vovler a jugar"
 function derrota (plata) {
     document.getElementById("victoriaDerrota").innerHTML = `<div class="alert alert-danger" role="alert">DERROTA. Perdió $${plata}</div>`
     pierdePlata(parseInt(plata))
@@ -206,6 +207,7 @@ function pierdePlata(plata) {
     localStorage.setItem("historial", JSON.stringify(historico))
 }
 
+// para desloguearse
 document.getElementById("logout").onclick = () => { desloguear() }
 
 function desloguear (){
