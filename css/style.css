@@ -22,16 +22,6 @@
   background-image: url("../resources/patron.png");
   background-size: 10%; }
 
-.wapp {
-  position: fixed;
-  top: 75%;
-  right: 150px; }
-  .wapp button {
-    background-color: greenyellow;
-    color: black;
-    padding: 15px;
-    border-radius: 15%; }
-
 .mainLogin {
   display: flex;
   flex-direction: column;
@@ -110,6 +100,10 @@
   .mainBj .principalBj {
     padding: 25px;
     width: 70%; }
+    .mainBj .principalBj .banBj {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
     .mainBj .principalBj .mesaBj {
       display: flex;
       flex-direction: column;
