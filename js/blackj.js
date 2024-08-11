@@ -99,7 +99,6 @@ function cartaJugador() {
         const carta = aleatorioBlackjack()
         console.log(carta);
         document.getElementById("cartaJugador").innerHTML += `<img src="../resources/${carta.imagen}.jpg" alt="" >`;  
-        // width=200px height=300px
         valorCarta += carta.valor
         document.getElementById("cuentaJugador").innerHTML = `<h2>cuenta del jugador: ${valorCarta}</h2>`
         arrayMazoCompleto.splice(azar, 1)
@@ -108,9 +107,15 @@ function cartaJugador() {
         console.log(manoJugador);
         if (valorCarta > 21)
             {
+                // si se pasa de 21 pero hay un as en la mano del jugador, pasa de valer 11 a 1.
+                // caso contrario es derrota directamente
                 if (manoJugador.includes(11)) {
                     valorCarta = valorCarta - 10;
+                    let lugar = manoJugador.indexOf(11)
                     document.getElementById("cuentaJugador").innerHTML = `<h2>cuenta del jugador: ${valorCarta}</h2>`;
+                    console.log(lugar)
+                    manoJugador.splice(lugar,1)
+                    console.log(manoJugador)
                 } else {
                     derrota(apuestaBj.value);
                 }                              
