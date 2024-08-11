@@ -35,7 +35,12 @@ function leerDos() {
         document.getElementById("wapp").innerHTML = `<p>Dinero: $${valoor.dinero}</p>`
     }
     else {
-        alert("debe loguearse primero")
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "No estas logueado!",
+            footer: '<a href="./login.html">INICIAR SESION</a>'
+          });
     }
 }
 
