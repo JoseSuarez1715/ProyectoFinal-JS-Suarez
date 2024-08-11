@@ -19,7 +19,7 @@
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">CASINO</a>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -38,41 +38,26 @@
                             <a class="nav-link" href="./historial.html">Historial</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./sueños.html">Sueños</a>
+                            <a class="nav-link disabled" aria-disabled="true">Sueños</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link disabled" aria-disabled="true">Log In</a>
+                            <a class="nav-link" href="./login.html">Log In</a>
                         </li>
                     </ul>
-                    <button class="btn btn-outline-alert" id="logout">Log out</button>
                 </div>
             </div>
         </nav>
     </nav>
     <main>
-        <section class="mainLogin">
-            <img src="../resources/casino-online-argentina.jpg" alt="" class="bannerLogin">
+        <section class="mainHistorial">
+            <section class="bannerHistorial">
+                <img src="../resources/casino-online-argentina.jpg" class="img-fluid" alt="">
 
-            <form class="form">
-                <div class="input-group">
-                    <span class="input-group-text">Nombre y Apellido</span>
-                    <input type="text" aria-label="First name" class="form-control" id="nombreLogin">
-                    <input type="text" aria-label="Last name" class="form-control" id="apellidoLogin">
+                <div id="listado">
+                    
                 </div>
-
-                <div class="input-group mb-3">
-                    <span class="input-group-text">usuario</span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" id="userLogin"
-                        aria-describedby="inputGroup-sizing-default">
-                </div>
-
-                <div class="mb-3">
-                    <input type="number" class="form-control" id="dineroLogin" aria-describedby="emailHelp"
-                        placeholder="Ingresar dinero">
-
-                </div>
-                <button class="btn btn-primary" id="loguear">Enviar</button>
-            </form>
+                
+            </section>
         </section>
     </main>
     <footer>
@@ -82,15 +67,13 @@
             </div>
             <div class="card-body">
                 <h5 class="card-title">LOS MEJORES JUEGOS</h5>
-
             </div>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="../js/login.js"></script>
-    <script src="../js/historial.js"></script>
+    <script src="../js/sueños.js"></script>
 </body>
 
 </html>
