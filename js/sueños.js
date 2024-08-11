@@ -1,6 +1,6 @@
 const lista = document.querySelector('#listado')
 
-fetch('/miarchivo.json')
+fetch('../miarchivo.json')
     .then((res) => res.json())
     .then((data) => {
         data.forEach((producto) => {
