@@ -96,8 +96,22 @@ const manoJugador = []
 let apuestaBj = document.getElementById("apuestaBlackjack")
 let botonPlantarse = document.getElementById("plantarse")
 let botonOtra = document.getElementById("pedirOtra")
-botonOtra.onclick = () => { cartaJugador() }
+botonOtra.onclick = () => { comprobarSesion() }
 botonPlantarse.onclick = () => { juegaCrupier() }
+
+function comprobarSesion() {
+    if (localStorage.length > 0) {
+        cartaJugador();
+    }
+    else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Debe loguearse para comenzar a jugar!",
+            footer: '<a href="./login.html">INICIAR SESION AQUI</a>'
+          });
+    }
+}
 
 // cuando pedis carta va acumulando hasta que pasa de 21
 function cartaJugador() {   
@@ -139,7 +153,7 @@ function aleatorioBlackjack() {
 // crupier saca cartas al azar hasta que supera la jugador o se pasa de 21
 function juegaCrupier() {
         if (valorCarta == 0) {
-        alert("Debe pedir carta primero")
+            Swal.fire("Debe pedir carta primero");
     }
     else {
         while (valorCrupier < valorCarta) {

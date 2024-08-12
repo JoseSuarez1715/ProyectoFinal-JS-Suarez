@@ -47,7 +47,21 @@ const treintayseis = new ruleta(36, "rojo")
 const arrayRuleta = [cero, uno, dos, tres, cuatro, cinco, seis, siete, ocho, nueve, diez, once, doce, trece, catorce, quince, dieciseis, diecisiete, dieciocho, diecinueve, veinte, veintiuno, veintidos, veintitres, veinticuatro, veinticinco, veintiseis, veintisiete, veintiocho, veintinueve, treinta, treintayuno, treintaydos, treintaytres, treintaycuatro, treintaycinco, treintayseis]
 
 let botonJugarRuleta = document.getElementById("jugarRuleta")
-botonJugarRuleta.onclick = () => { empezarRuleta() }
+botonJugarRuleta.onclick = () => { comprobarSesion() }
+
+function comprobarSesion() {
+    if (localStorage.length > 0) {
+        empezarRuleta();
+    }
+    else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Debe loguearse para comenzar a jugar!",
+            footer: '<a href="./login.html">INICIAR SESION AQUI</a>'
+          });
+    }
+}
 
 let apuestaCero = document.getElementById("vbtn-radio0")
 let apuestaUno = document.getElementById("vbtn-radio1")

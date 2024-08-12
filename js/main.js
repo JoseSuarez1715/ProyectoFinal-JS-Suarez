@@ -21,7 +21,21 @@ let apuestaCrapdos = document.getElementById("btnradio2")
 
 // boton para empezar a jugar luego de seleccionar line pass
 let botonDado = document.getElementById("tirarDado")
-botonDado.onclick = () => { dadosMesa() }
+botonDado.onclick = () => { comprobarSesion() }
+
+function comprobarSesion() {
+    if (localStorage.length > 0) {
+        dadosMesa();
+    }
+    else {
+        Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Debe loguearse para comenzar a jugar!",
+            footer: '<a href="./login.html">INICIAR SESION AQUI</a>'
+          });
+    }
+}
 
 
 // al cargar la pagina se conprueba si está logueado
